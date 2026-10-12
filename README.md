@@ -95,7 +95,6 @@ These are recorded in the data (`excluded_rows.csv` and the `credits_source` col
 
 - One location, one connection and essentially one test day. Sites change; Leboncoin passed at the 1-credit tier on a later run.
 - Small samples in some cells (5 rounds; 10 for Browser Sessions).
-- Extract's extra credit comes from Zenrows' billing header and wasn't verified against billed account totals.
 - Residential Proxies were tested with Python `requests`, which sends Chrome headers but doesn't reproduce Chrome's TLS fingerprint or run JavaScript.
 - Starlink dropped 3 long-running requests; it's not possible to tell from the client side which end closed them.
 - Raw page samples and screenshots aren't published, because they're full copies of third-party pages.
