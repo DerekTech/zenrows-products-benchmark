@@ -1,0 +1,7 @@
+{
+  "static": "base",
+  "spa": "js",
+  "ecom": "js_premium",
+  "antibot": "base",
+  "session": "base"
+}

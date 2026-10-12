@@ -1,0 +1,17 @@
+spa:
+    label: Dynamic, infinite scroll (the-internet.herokuapp.com/infinite_scroll)
+    protection: none
+    protection_checked: "none: 2026-10-01"
+    products: [fetch, extract, batch, browser]
+    probe_start: js
+    marker: "jscroll-added"
+    marker_min_count: 3
+    urls:
+      - https://the-internet.herokuapp.com/infinite_scroll
+    js_params:
+      wait_for: ".jscroll-added"
+      js_instructions: '[{"scroll_y": 3000}, {"wait": 3000}, {"scroll_y": 3000}, {"wait": 3000}, {"scroll_y": 3000}, {"wait": 3000}]'
+    browser_ready: ".jscroll-inner"
+    browser_ready_timeout_s: 60
+    browser_scrolls: 3
+    browser_scroll_timeout_s: 45

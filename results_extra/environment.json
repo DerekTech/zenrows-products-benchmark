@@ -1,0 +1,9 @@
+{
+  "updated_utc": "2026-10-03T00:45:22+00:00",
+  "python": "3.11.9",
+  "os": "Windows 10",
+  "location": "Montreal, Canada / Starlink satellite internet",
+  "requests": "2.34.2",
+  "pyyaml": "6.0.3",
+  "playwright": "1.63.0"
+}

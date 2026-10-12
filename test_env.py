@@ -1,0 +1,1 @@
+import os; k=os.environ.get('ZENROWS_API_KEY',''); print('API key:', (k[:4]+'...'+k[-4:]) if k else 'NOT SET'); print('SITE_USER:', os.environ.get('SITE_USER','NOT SET')); print('SITE_PASS:', 'set' if os.environ.get('SITE_PASS') else 'NOT SET')

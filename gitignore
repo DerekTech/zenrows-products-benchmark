@@ -1,0 +1,30 @@
+# Secrets: never commit
+.env
+.env.*
+!.env.example
+
+# Raw evidence from third-party sites (full Walmart/Leboncoin pages, screenshots).
+# Kept locally; the summarized data in results/ is what gets published.
+results/samples/
+results/screenshots/
+results_pilot/samples/
+results_pilot/screenshots/
+results_extra/samples/
+results_extra/screenshots/
+screenshots/
+
+# Backups and scratch files written by the fix and merge scripts
+*.bak
+*.bak2
+*.premerge.bak
+results/*.csv.bak*
+
+# Python and editor clutter
+__pycache__/
+*.pyc
+.venv/
+venv/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

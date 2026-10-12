@@ -1,0 +1,4 @@
+POST prepared-domains scrapethissite.com -> 202
+   {"domain": "scrapethissite.com", "status": "preparing", "state": "received", "submitted_at": "2026-10-02T08:40:04.426345Z", "updated_at": "2026-10-02T08:40:04.426345Z"}
+POST prepared-domains the-internet.herokuapp.com -> 202
+   {"domain": "the-internet.herokuapp.com", "status": "preparing", "state": "received", "submitted_at": "2026-10-02T08:40:05.628484Z", "updated_at": "2026-10-02T08:40:05.628484Z"}

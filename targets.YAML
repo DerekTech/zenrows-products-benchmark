@@ -1,0 +1,117 @@
+# Fill every REPLACE before running. Any target that still contains REPLACE is skipped.
+
+settings:
+  location: "Montreal, Canada / Starlink satellite internet"   # recorded on every row
+  pause_s: 1.0             # gap between requests (sequential)
+  timeout_s: 180
+  budget_credits: 15000     # hard stop across all runs (sum of logged credits)
+  probe_attempts: 3        # attempts per rung on the escalation ladder
+  n_smoke: 5               # default rounds for `run`
+  n_full: 20               # default target for `extend`
+  browser_max: 10          # cap on Browser Sessions attempts per target
+  autoparse_fallback: true # use Autoparse where Extract returns AUTH010
+  extract_unsupported_codes: [AUTH010, REQS007]
+
+# Validation for every product:
+#   pass = marker appears >= marker_min_count times AND no block_markers present
+
+targets:
+
+  static:
+    label: Static baseline (scrapethissite.com hockey teams, paginated HTML)
+    protection: none
+    protection_checked: "none: 2026-10-01"
+    products: [fetch, extract, batch, proxy]
+    marker: 'class="team"'
+    marker_min_count: 1
+    urls:
+      - https://www.scrapethissite.com/pages/forms/?page_num=1
+      - https://www.scrapethissite.com/pages/forms/?page_num=2
+      - https://www.scrapethissite.com/pages/forms/?page_num=3
+      - https://www.scrapethissite.com/pages/forms/?page_num=4
+      - https://www.scrapethissite.com/pages/forms/?page_num=5
+    batch_urls_range:
+      pattern: "https://www.scrapethissite.com/pages/forms/?page_num={n}"
+      start: 1
+      end: 24
+  spa:
+    label: Dynamic, infinite scroll (infinite-scroll.com official demo)
+    protection: none
+    protection_checked: "none: 2026-10-02"
+    products: [fetch, extract, batch, browser]
+    probe_start: js
+    # Replaced the-internet.herokuapp.com (12/20 local control failures) and
+    # webscraper.io/test-sites/e-commerce/scroll (doesn't load content on scroll).
+    marker: 'class="article"'
+    marker_min_count: 3                    # REPLACE: source count + at least one extra page of articles
+    urls:
+      - https://infinite-scroll.com/demo/full-page/
+    js_params:
+      wait_for: ".article"
+      js_instructions: '[{"scroll_y": 3000}, {"wait": 3000}, {"scroll_y": 3000}, {"wait": 3000}, {"scroll_y": 3000}, {"wait": 3000}]'
+    browser_ready: ".article-feed"
+    browser_ready_timeout_s: 30
+    browser_scrolls: 3
+    browser_scroll_timeout_s: 45
+    batch_repeat: 20
+
+  ecom:
+    label: E-commerce (Walmart product pages)
+    protection: "Akamai Bot Manager + HUMAN (PerimeterX)"
+    protection_checked: "present: 2026-10-01"
+    products: [fetch, extract, batch, browser, proxy]
+    probe_start: js_premium
+    marker: 'id="main-title"'                  # REPLACE if View Source on a product page shows otherwise
+    block_markers: ["Robot or human", "/blocked"]
+    extract_expect: [current_price]
+    urls:                                    # 5-10 product pages, different products
+      - https://www.walmart.com/ip/Fantaslook-Color-Block-Sweatshirts-for-Women-Crewneck-Long-Sleeve-Oversized-Pullover-Tops-Casual-Fall-Outfits/7868571128
+      - https://www.walmart.com/ip/MOSHU-Crewneck-Sweatshirts-for-Women-Side-Split-Long-Sleeve-Shirts-Fashion-Fall-Womens-Tops/9626520692
+      - https://www.walmart.com/ip/UVN-Lounge-Outfit-Set-for-Women-2-Piece-Ruched-Short-Sleeve-Tops-and-Wide-Leg-Pants-with-Pockets-Casual-Womens-Loungewear/19371204404
+      - https://www.walmart.com/ip/Shower-Foot-Scrubber-Mat-Non-Slip-Suction-Cups-Foot-Back-Cleaning-Pad-Back-Washer-Exfoliating-Bath-Wash-Pad-Non-Slip-Bathtub-Shower-Mat-Suction-Cups/17565003056
+      - https://www.walmart.com/ip/Kayannuo-Clearance-New-Natural-Bristle-Dry-Skin-Exfoliation-Brush-Massager-Face-Brush-Body-Brush/1741727368
+    batch_urls_file: "walmart_urls.txt"                      # e.g. walmart_urls.txt, ~50 product URLs
+
+  antibot:
+    label: Hard anti-bot (Leboncoin, DataDome)
+    protection: "DataDome"
+    protection_checked: "present: 2026-10-01"
+    products: [fetch, extract, batch, browser, proxy]
+    proxy_env: ZR_PROXY_URL_FR
+    #probe_start: js_premium
+    always_full: true
+    marker: 'galerie de photos'                  # REPLACE if View Source on an ad page shows otherwise
+    block_markers: ["captcha-delivery.com"]
+    premium_params:
+      proxy_country: fr                      # sent only with premium_proxy configs
+    urls:                                    # 5-10 ad pages
+      - https://www.leboncoin.fr/ad/voitures/3196739459
+      - https://www.leboncoin.fr/ad/voitures/3213662930
+      - https://www.leboncoin.fr/ad/voitures/3280476094
+      - https://www.leboncoin.fr/ad/voitures/3280475789
+      - https://www.leboncoin.fr/ad/voitures/3280475441
+    batch_urls_file: "leboncoin_urls.txt"                # e.g. leboncoin_urls.txt, ~50 ad URLs
+
+  session:
+    label: Session-based (the-internet.herokuapp.com/login)
+    protection: none (tests session handling, not anti-bot)
+    protection_checked: "none: 2026-10-01"
+    products: [fetch, extract, batch, browser, proxy]
+    batch_repeat: 5
+    marker: 'href="/logout"'
+    urls:
+      - https://the-internet.herokuapp.com/secure
+    batch_repeat: 20
+    headers:
+      User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+      Accept-Language: "en-US,en;q=0.9"
+    cookies: "rack.session= Your cookie"
+    force_config: base
+    session_id: 4242
+    login:
+      url: https://the-internet.herokuapp.com/login
+      user_selector: "#username"
+      pass_selector: "#password"
+      submit_selector: "button[type=submit]"
+      user_env: SITE_USER
+      pass_env: SITE_PASS

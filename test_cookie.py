@@ -1,0 +1,1 @@
+import requests; r=requests.get('https://the-internet.herokuapp.com/secure', headers={'Cookie': 'Your cookie'}); print(r.url, 'href=\"/logout\"' in r.text)

@@ -1,0 +1,44 @@
+{
+  "https://quotes.toscrape.com/": {
+    "status": 400,
+    "code": "REQS001",
+    "detail": "Requests to this URL are forbidden. Contact support if this may be a problem, or try again with a different target URL.",
+    "verdict": "REFUSED"
+  },
+  "https://www.walmart.com/": {
+    "status": 200,
+    "code": "",
+    "detail": "",
+    "verdict": "ALLOWED"
+  },
+  "https://www.leboncoin.fr/": {
+    "status": 200,
+    "code": "",
+    "detail": "",
+    "verdict": "ALLOWED"
+  },
+  "https://the-internet.herokuapp.com/infinite_scroll": {
+    "status": 200,
+    "code": "",
+    "detail": "",
+    "verdict": "ALLOWED"
+  },
+  "https://the-internet.herokuapp.com/login": {
+    "status": 200,
+    "code": "",
+    "detail": "",
+    "verdict": "ALLOWED"
+  },
+  "https://www.scrapethissite.com/pages/simple/": {
+    "status": 200,
+    "code": "",
+    "detail": "",
+    "verdict": "ALLOWED"
+  },
+  "https://webscraper.io/test-sites/e-commerce/scroll": {
+    "status": 200,
+    "code": "",
+    "detail": "",
+    "verdict": "ALLOWED"
+  }
+}

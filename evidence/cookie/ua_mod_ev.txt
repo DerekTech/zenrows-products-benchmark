@@ -1,0 +1,34 @@
+Cookie in targets.yaml: rack.session=BAh7Ckk...ccee7e
+
+[echo] status 200
+[echo] Cookie the target received: rack.session=BAh7Ckk...ccee7e
+[echo] Matches what we sent: True
+[echo] User-Agent received matches ours: False
+         sent:     Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+         received: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+[echo] Accept-Language received matches ours: True
+
+[secure] status 200
+[secure] logged in (logout link present): False
+[secure] login page returned instead: True
+
+Saved the /secure response to results/cookie_check_secure.html
+
+[Done] exited with code=0 in 16.176 seconds
+
+[Running] python -u "c:\Users\atder\zenrows_benchmark\check_cookie_forwarding.py"
+Cookie in targets.yaml: rack.session=BAh7Ckk...ccee7e
+
+[echo] status 200
+[echo] Cookie the target received: rack.session=BAh7Ckk...ccee7e
+[echo] Matches what we sent: True
+[echo] User-Agent received matches ours: False
+         sent:     Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+         received: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+[echo] Accept-Language received matches ours: True
+
+[secure] status 200
+[secure] logged in (logout link present): False
+[secure] login page returned instead: True
+
+Saved the /secure response to results/cookie_check_secure.html

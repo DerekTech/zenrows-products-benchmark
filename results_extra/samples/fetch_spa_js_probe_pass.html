@@ -1,0 +1,236 @@
+<html lang="en" class=""><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Infinite Scroll · Full page demo</title>
+
+    <link rel="stylesheet" href="../../css/infinite-scroll-docs.css?5" media="screen">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@metafizzyco">
+    <meta name="twitter:title" content="Infinite Scroll · Full page demo">
+    <meta property="og:url" content="https://infinite-scroll.com/demo/full-page/index.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Infinite Scroll · Full page demo">
+    <meta property="og:site_name" content="Infinite Scroll">
+    <meta name="twitter:image" content="https://infinite-scroll.com/img/infinite-scroll-illo.png">
+    <meta property="og:image" content="https://infinite-scroll.com/img/infinite-scroll-illo.png">
+
+</head>
+
+<body class="page--index" data-basename="index">
+
+<ol class="site-nav">
+  <li class="site-nav__item site-nav__item--homepage">
+    <a href="../../.">Infinite Scroll</a>
+  </li>
+  <li class="site-nav__item site-nav__item--options">
+    <a href="/options">Options</a>
+  </li>
+  <li class="site-nav__item site-nav__item--api">
+    <a href="/api">API</a>
+  </li>
+  <li class="site-nav__item site-nav__item--events">
+    <a href="/events">Events</a>
+  </li>
+  <li class="site-nav__item site-nav__item--extras">
+    <a href="/extras">Extras</a>
+  </li>
+</ol>
+
+<div class="main">
+  <div class="container">
+
+      <h1 class="page-title">Full page demo</h1>
+
+    <div class="article-feed" data-infinite-scroll="{ &quot;path&quot;: &quot;.pagination__next&quot;, &quot;append&quot;: &quot;.article&quot;, &quot;status&quot;: &quot;.scroller-status&quot;, &quot;hideNav&quot;: &quot;.pagination&quot; }">
+
+      
+<article class="article">
+  <h2 class="article__title" id="1a-infinite-scroll-full-page-demo">1a - Infinite Scroll full page demo</h2>
+
+  <p><b>Hi!</b> This demo will show off several key features of Infinite Scroll.</p>
+
+  <ul>
+    <li>Full page scrolling</li>
+    <li>Changing browser URL and history. Watch how the URL changes as you scroll. Try refreshing on a changed page.</li>
+    <li>Embeds like CodePens and Tweets have their <code>&lt;script&gt;</code>s loaded and embeds rendered</li>
+  </ul>
+
+  <p>The code looks like this:</p>
+
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"article-feed"</span>&gt;</span>
+  <span class="comment">&lt;!-- .articles will be added to .article-feed --&gt;</span>
+  <span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">"article"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">article</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">"article"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">article</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+
+<span class="comment">&lt;!-- status elements --&gt;</span>
+<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"scroller-status"</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"infinite-scroll-request loader-ellips"</span>&gt;</span>
+    ...
+  <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"infinite-scroll-last"</span>&gt;</span>End of content<span class="tag">&lt;/<span class="name">p</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"infinite-scroll-error"</span>&gt;</span>No more pages to load<span class="tag">&lt;/<span class="name">p</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+
+<span class="comment">&lt;!-- pagination has path --&gt;</span>
+<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"pagination"</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"pagination__next"</span> <span class="attr">href</span>=<span class="string">"page2.html"</span>&gt;</span>Next page<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">p</span>&gt;</span></code></pre>
+
+
+<pre><code class="js"><span class="comment">// init Infinite Scroll</span>
+$(<span class="string">'.article-feed'</span>).infiniteScroll({
+  <span class="attr">path</span>: <span class="string">'.pagination__next'</span>,
+  <span class="attr">append</span>: <span class="string">'.article'</span>,
+  <span class="attr">status</span>: <span class="string">'.scroller-status'</span>,
+  <span class="attr">hideNav</span>: <span class="string">'.pagination'</span>,
+});</code></pre>
+
+
+</article>
+
+<article class="article">
+  <h2 class="article__title" id="1b-rgb-schemes-logo-in-computer-arts">1b - RGB Schemes logo in Computer Arts</h2>
+
+  <p>As part of their March 2017 issue on VR, <a href="http://www.creativebloq.com/computer-arts-magazine">Computer Arts</a> featured the <a href="/blog/rgb-schemes-logo">RGB Schemes logo</a> in a five page spread. I got to share the nitty gritty of how the project came together, working through the brief, and all the stuff that didn't make the cut. <a href="https://www.myfavouritemagazines.co.uk/design/computer-arts-magazine-back-issues/computer-arts-march-2017-issue-263/">You can still grab a back issue online</a>.</p>
+  <p><img src="https://i.imgur.com/Z7CCiYI.jpg" alt="Computer Arts RGB Schemes logo article"></p>
+  <p><img src="https://i.imgur.com/G74MTbS.jpg" alt="Computer Arts RGB Schemes logo article"></p>
+
+</article>
+
+    
+    <article class="article">
+  <h2 class="article__title" id="2a-rgb-schemes-logo">2a - RGB Schemes logo</h2>
+
+  <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Designed this birdie logo for RGB Schemes, VR gaming start-up. Can be rendered as 3D object to melt brains in VR <a href="https://t.co/TxjAffTzwZ">https://t.co/TxjAffTzwZ</a> <a href="https://t.co/ud2bBPeG5e">pic.twitter.com/ud2bBPeG5e</a></p>— Dave DeSandro (@desandro) <a href="https://twitter.com/desandro/status/804705433739022338">December 2, 2016</a></blockquote>
+  <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</article><article class="article">
+  <h2 id="2b-masonry-gets-horizontalorder">2b - Masonry gets horizontalOrder</h2>
+
+  <p>I've added Masonry's first new layout feature in years. <a href="https://masonry.desandro.com/options#horizontalorder"><code>horizontalOrder</code> for Masonry</a> and <a href="https://isotope.metafizzy.co/layout-modes/masonry.html#horizontalorder">Isotope</a> will position items in a Masonry staggered layout, but maintain left-to-right order. Previously, Masonry would discard horizontal order and position items in the closest position to the top. While the first row would have horizontal order: 1, 2, 3; subsequent rows would break the order: 5, 4, 6 ... 9, 7, 8.</p>
+  <p><img src="https://i.imgur.com/WQVtdGp.png" alt="Masonry and left-to-right order"></p>
+  <p><a href="https://codepen.io/desandro/pen/dWVqmx">Try out the demo on CodePen</a>.</p>
+  <p></p><div class="cp_embed_wrapper"><iframe sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups-to-escape-sandbox allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="accelerometer; bluetooth; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; geolocation; gyroscope; language-detector; language-model; local-network-access; microphone; midi; rewriter; serial; summarizer; translator; web-share; writer; xr-spatial-tracking" allowpaymentrequest="true" allowfullscreen="true" allowtransparency="true" class="cp_embed_iframe " frameborder="0" height="360" width="100%" name="cp_embed_1" scrolling="no" src="https://codepen.io/desandro/embed/dWVqmx?height=360&amp;theme-id=20058&amp;slug-hash=dWVqmx&amp;default-tab=result&amp;user=desandro&amp;pen-title=Masonry%20%26%20Isotope%20horizontalOrder&amp;name=cp_embed_1" style="width: 100%; overflow:hidden; display:block;" title="Masonry &amp; Isotope horizontalOrder" loading="lazy" id="cp_embed_dWVqmx"></iframe></div><p></p>
+  <script async="" src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  <p>This feature has been <a href="https://github.com/desandro/masonry/issues/873">hotly requested over a long time</a>. For a while, I felt a horizontalOrder feature went against the purpose of Masonry. Masonry is supposed to mess up the horizontal order — that's what makes it Masonry. But recently, I've started relenting over these philosophical stances. If hundreds of people are asking for the same thing, maybe I shouldn't be so stubborn.</p>
+
+</article><article class="article">
+  <h2 id="2c-every-vector-2016">2c - Every vector 2016</h2>
+
+  <p><a href="https://i.imgur.com/mXaAcNO.png"><img src="https://i.imgur.com/mXaAcNO.png" alt="Metafizzy every vector 2016"></a></p>
+  <p><a href="http://www.draplin.com/1998/01/ddc100_pretty_much_everything_up_to_oct_11_2013_poster.html">Draplin-esque</a> collage. Every vector made in 2016. Accepted, rejected, upcoming, or unused.</p>
+
+</article><article class="article">
+  <h2 id="3a-logo-pizza-delivered">3a - Logo Pizza delivered</h2>
+
+  <p><a href="http://logo.pizza"><img src="https://i.imgur.com/u40AMfs.png" alt="Logo Pizza"></a></p>
+  <p>After shipping <a href="/blog/flickity-v2-released">Flickity v2</a> thus wrapping 2016's huge development project, I didn't have it in me to write another line of code. I discussed my state of mind and motivation in this 3 min podcast.</p>
+  <p><a class="embedly-card" href="https://bumpers.fm/e/avbd99o4m4ug00o93t30">New thing, shortsightedness on Bumpers</a></p>
+  <script async="" src="//cdn.embedly.com/widgets/platform.js"></script>
+
+  <p>Looking to change things up, I started making logos. </p>
+  <p>Man, I love logos. A little piece of imagery that represents the ideal you want your project to be — that's design magic right there. I've been able to work on some great logo projects, but I've been itching to do more. Rather than wait for projects to come my way, I gave myself a project of my own: design 50 logos. <strong>50 logos in 30 days.</strong></p>
+  <p>Fifty logos is a lot. At least one or two a day for an entire month. I tried pushing myself: exploring different styles, subjects, and techniques. It was like design boot camp: working all those muscles you never use.</p>
+  
+
+</article><article class="article">
+  <h2 class="article__title" id="3b-some-codepens">3b - Some CodePens</h2>
+
+  <div class="cp_embed_wrapper"><iframe sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups-to-escape-sandbox allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="accelerometer; bluetooth; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; geolocation; gyroscope; language-detector; language-model; local-network-access; microphone; midi; rewriter; serial; summarizer; translator; web-share; writer; xr-spatial-tracking" allowpaymentrequest="true" allowfullscreen="true" allowtransparency="true" class="cp_embed_iframe " frameborder="0" height="375" width="100%" name="cp_embed_1" scrolling="no" src="https://codepen.io/desandro/embed/XbqZzm?height=375&amp;theme-id=dark&amp;slug-hash=XbqZzm&amp;default-tab=result&amp;user=desandro&amp;pen-title=2D%20ribbon%20physics%20study&amp;name=cp_embed_1" style="width: 100%; overflow:hidden; display:block;" title="2D ribbon physics study" loading="lazy" id="cp_embed_XbqZzm"></iframe></div>
+
+  <div class="cp_embed_wrapper"><iframe sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups-to-escape-sandbox allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="accelerometer; bluetooth; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; geolocation; gyroscope; language-detector; language-model; local-network-access; microphone; midi; rewriter; serial; summarizer; translator; web-share; writer; xr-spatial-tracking" allowpaymentrequest="true" allowfullscreen="true" allowtransparency="true" class="cp_embed_iframe " frameborder="0" height="659" width="100%" name="cp_embed_2" scrolling="no" src="https://codepen.io/desandro/embed/zBPkdr?height=659&amp;theme-id=dark&amp;slug-hash=zBPkdr&amp;default-tab=result&amp;user=desandro&amp;pen-title=Yoshi%27s%20Island%20parallax%20Flickity&amp;name=cp_embed_2" style="width: 100%; overflow:hidden; display:block;" title="Yoshi's Island parallax Flickity" loading="lazy" id="cp_embed_zBPkdr"></iframe></div>
+
+  <script async="" src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+</article><article class="article">
+  <h2 class="article__title" id="3c-365daysofmusic-com">3c - 365daysofmusic.com</h2>
+
+  <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Great big full-screen Flickity on <a href="https://t.co/8h3jJp3e0z">https://t.co/8h3jJp3e0z</a> by <a href="https://twitter.com/smdly">@smdly</a> <a href="https://t.co/pnJZ3stLL7">pic.twitter.com/pnJZ3stLL7</a></p>— Metafizzy (@metafizzyco) <a href="https://twitter.com/metafizzyco/status/832318064754556928">February 16, 2017</a></blockquote>
+  <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</article><article class="article">
+  <h2 class="article__title" id="3d-holograms">3d - Holograms</h2>
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Ft97bSfS7x8?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
+
+</article><article class="article">
+  <h2 id="4a-huebee-1-click-color-picker">4a - Huebee: 1-click color picker</h2>
+
+  <p><a href="http://huebee.buzz"><img src="https://i.imgur.com/2oW5U49.png" alt="Huebee color picker"></a></p>
+  <p>I've made a new thing! <a href="http://huebee.buzz">Huebee is a one-click color picker.</a> It displays a limited set of colors so users view all colors at a glance, make clear decisions, and select a color with a single click.</p>
+  <p>I made Huebee while I was working on <a href="http://logo.pizza">Logo Pizza</a>. I added a feature so you can choose your own custom colors for a logo. Looking at other color pickers, I couldn't find what I wanted.</p>
+  <p>Most color pickers are computer-centric. They are designed to display and select from every possible color available, nearly 17 million. But as a human, you only need a good selection: maybe 6 hues, with several shades, plus a couple grays.</p>
+
+  <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">New! Huebee 🐝 1-click color picker <a href="https://t.co/mXcOOwQsTb">https://t.co/mXcOOwQsTb</a><br>Uses limited color palette so all colors are visible <a href="https://t.co/nPEo5Q1S6J">pic.twitter.com/nPEo5Q1S6J</a></p>— Dave DeSandro (@desandro) <a href="https://twitter.com/desandro/status/799618183284097024">November 18, 2016</a></blockquote>
+  <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <p>Huebee is Metafizzy's 4th commercial library. The other libraries, <a href="https://isotope.metafizzy.co">Isotope</a>, <a href="https://flickity.metafizzy.co">Flickity</a>, and <a href="https://packery.metafizzy.co">Packery</a>, are all big, full-featured projects. Supporting them is a lot of work. Huebee mixes that up. Huebee is small and purpose-built — a welcome entry in the Metafizzy product line-up.</p>
+
+
+</article><article class="article">
+  <h2 id="4b-word-is-flickity-is-good">4b - Word is Flickity is good</h2>
+
+  <p><a href="https://flickity.metafizzy.co">Flickity</a> has been getting good looks from some of the web's top developers.</p>
+  <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">~<a href="https://twitter.com/metafizzyco">@metafizzyco</a> Flickity is by far the best slider I’ve used. So simple, doesn’t need dependencies &amp; customizable <a href="https://t.co/RuSE2QjZ9p">https://t.co/RuSE2QjZ9p</a> <br><br>🔝💯</p>— Sara Soueidan (@SaraSoueidan) <a href="https://twitter.com/SaraSoueidan/status/768503838773022720">August 24, 2016</a></blockquote>
+
+  <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/brad_frost">@brad_frost</a> <a href="https://twitter.com/metafizzyco">@metafizzyco</a> I love how ridiculously simple and fast it was to set up and get it running AND customize it. &lt;3</p>— Sara Soueidan (@SaraSoueidan) <a href="https://twitter.com/SaraSoueidan/status/768508940644716544">August 24, 2016</a></blockquote>
+
+  <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://t.co/FjvQFfrXDI">https://t.co/FjvQFfrXDI</a> by <a href="https://twitter.com/metafizzyco">@metafizzyco</a> is the only great carousel library I've ever seen.</p>— Joni Korpi (@jonikorpi) <a href="https://twitter.com/jonikorpi/status/778216301848358912">September 20, 2016</a></blockquote>
+
+  <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">But the most important thing is it uses physics-based, interruptable animation. Similar to iOS scrolling animations. Massively overlooked.</p>— Joni Korpi (@jonikorpi) <a href="https://twitter.com/jonikorpi/status/778216858872848384">September 20, 2016</a></blockquote>
+
+  <blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/smithtimmytim">@smithtimmytim</a> nothing is better than <a href="https://t.co/NN6g7KuiVk">https://t.co/NN6g7KuiVk</a> from <a href="https://twitter.com/desandro">@desandro</a> :) he makes the best stuff.</p>— Drew Wilson (@drewwilson) <a href="https://twitter.com/drewwilson/status/783318613532958720">October 4, 2016</a></blockquote>
+
+  <p>To top it off, Darin Reid has extended Flickity's scroll behavior to do wild transformations with <a href="https://github.com/elcontraption/flickity-transformer">Flickity Transformer</a>.</p>
+  <p><img src="https://raw.githubusercontent.com/elcontraption/flickity-transformer/master/demo.gif" alt="Flickity transformer"></p>
+
+  <div class="cp_embed_wrapper"><iframe sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups-to-escape-sandbox allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="accelerometer; bluetooth; camera; clipboard-read; clipboard-write; display-capture; encrypted-media; geolocation; gyroscope; language-detector; language-model; local-network-access; microphone; midi; rewriter; serial; summarizer; translator; web-share; writer; xr-spatial-tracking" allowpaymentrequest="true" allowfullscreen="true" allowtransparency="true" class="cp_embed_iframe " frameborder="0" height="462" width="100%" name="cp_embed_1" scrolling="no" src="https://codepen.io/elcontraption/embed/RGPboR?height=462&amp;theme-id=20058&amp;slug-hash=RGPboR&amp;default-tab=result&amp;user=elcontraption&amp;name=cp_embed_1" style="width: 100%; overflow:hidden; display:block;" title="CodePen Embed" loading="lazy" id="cp_embed_RGPboR"></iframe></div>
+
+  <p>It's a delight to see Flickity getting the attention it deserves. But it didn't happen overnight. It's taken over a year to accrue this level of praise.</p>
+  <p>And let's not forget, Yeezy uses Flickity.</p>
+
+  <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Using flickity by <a href="https://twitter.com/desandro">@desandro</a> <a href="https://twitter.com/metafizzyco">@metafizzyco</a> on <a href="https://t.co/QCKrs0OqGi">https://t.co/QCKrs0OqGi</a>  mobile for that super smooth  swipe action!</p>— Lane (@lanegoldberg) <a href="https://twitter.com/lanegoldberg/status/741335482219520001">June 10, 2016</a></blockquote>
+
+  <script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
+  <script async="" src="//platform.twitter.com/widgets.js"></script>
+
+</article></div>
+
+    <div class="scroller-status" style="display: none;">
+      <div class="loader-ellips infinite-scroll-request" style="display: none;">
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+      </div>
+      <p class="scroller-status__message infinite-scroll-last" style="display: none;">End of content</p>
+      <p class="scroller-status__message infinite-scroll-error" style="display: none;">No more pages to load</p>
+    </div>
+
+      <p class="pagination" style="display: none;">
+        <a class="pagination__next" href="/demo/full-page/page2">Next page</a>
+      </p>
+
+    <footer class="full-page-demo-footer"></footer>
+
+  </div> 
+</div> 
+
+
+  <script src="../../js/infinite-scroll-docs.min.js?3"></script>
+
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-58739927-7','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async="" defer=""></script>
+
+
+
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/widget_iframe.1227a5674072e080ffb1ba14ac0c1079.html?origin=https%3A%2F%2Finfinite-scroll.com" title="Twitter settings iframe" style="display: none;"></iframe></body></html>
